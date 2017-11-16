@@ -1,0 +1,15 @@
+{
+  "capture_source": "/dev/video0",
+  "capture_props": {
+    "exposure_auto": 1,
+    "exposure_absolute": 300
+  },
+  "comms_enabled": true,
+  "comms_port": 5001,
+  "gui_enabled": true,
+  "feed_enabled": true,
+  "feed_port": 5000,
+  "log_level": "debug",
+  "log_to_console": true,
+  "log_to_file": false
+}
