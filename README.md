@@ -21,8 +21,8 @@ Then run it:
 
 ## Details of modules
 
-- **__init__.py:** required file for Python packages. We don't use it for anything, so we just leave it blank.
-- **__main__.py:** main file containing the `main()` function that is called by `vision2018` when you launch the program. Contains the main processing loop and initialization for everything.
+- **\_\_init\_\_.py:** required file for Python packages. We don't use it for anything, so we just leave it blank.
+- **\_\_main\_\_.py:** main file containing the `main()` function that is called by `vision2018` when you launch the program. Contains the main processing loop and initialization for everything.
 - **capture.py:** used in place of OpenCV's VideoCapture class. Very similar usage. See comments in the file for details about how this works.
 - **feed.py:** contains the code needed to start the live video feed web server.
 - **config_utils.py:** short utility functions for configuration purposes. Mostly parsing strings.
