@@ -12,7 +12,6 @@ setup(
     packages=['vision2018'],
     entry_points={'console_scripts': ['vision2018 = vision2018.__main__:main']},
     install_requires=[
-        'v4l2',
         'zmq',
         'numpy',
         'flask'
