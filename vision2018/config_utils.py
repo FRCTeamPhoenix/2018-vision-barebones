@@ -1,5 +1,4 @@
 import logging
-import v4l2
 
 def to_log_level(level):
     level = level.lower()
@@ -14,28 +13,30 @@ def to_log_level(level):
     else:
         return logging.DEBUG
 
+# these are V4L2 property IDs, e.g. V4L2_CID_BRIGHTNESS, etc.
+# https://www.linuxtv.org/downloads/legacy/video4linux/API/V4L2_API/spec-single/v4l2.html#control
 def to_v4l2_prop(prop):
     prop = prop.lower()
     if prop == 'brightness':
-        return v4l2.V4L2_CID_BRIGHTNESS
+        return 9963776
     elif prop == 'contrast':
-        return v4l2.V4L2_CID_CONTRAST
+        return 9963777
     elif prop == 'saturation':
-        return v4l2.V4L2_CID_SATURATION
+        return 9963778
     elif prop == 'hue':
-        return v4l2.V4L2_CID_HUE
+        return 9963779
     elif prop == 'white_balance_temperature_auto':
-        return v4l2.V4L2_CID_AUTO_WHITE_BALANCE
+        return 9963788
     elif prop == 'gamma':
-        return v4l2.V4L2_CID_GAMMA
+        return 9963792
     elif prop == 'white_balance_temperature':
-        return v4l2.V4L2_CID_WHITE_BALANCE_TEMPERATURE
+        return 9963802
     elif prop == 'sharpness':
-        return v4l2.V4L2_CID_SHARPNESS
+        return 9963803
     elif prop == 'backlight_compensation':
-        return v4l2.V4L2_CID_BACKLIGHT_COMPENSATION
+        return 9963804
     elif prop == 'exposure_auto':
-        return v4l2.V4L2_CID_EXPOSURE_AUTO
+        return 10094849
     elif prop == 'exposure_absolute':
-        return v4l2.V4L2_CID_EXPOSURE_ABSOLUTE
+        return 10094850
     return None

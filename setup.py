@@ -14,7 +14,8 @@ setup(
     install_requires=[
         'v4l2',
         'zmq',
-        'numpy'
+        'numpy',
+        'flask'
     ],
     include_package_data=True,
     long_description=_read('README.md'),

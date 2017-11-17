@@ -11,6 +11,10 @@ This repository provides a barebones base to develop future vision code off of. 
 
 ## Installation and Usage
 
+First, ensure dependencies are installed:
+- OpenCV 2.4 (with Python 2.7 support)
+- [PyV4L2](https://github.com/FRCTeamPhoenix/pyv4l2)
+
 To install, simply use the included `setup.py` file:
 
     python setup.py install

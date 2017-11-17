@@ -1,6 +1,5 @@
 import cv2
 from datetime import datetime
-from capture import Capture
 import zmq
 from feed import Feed
 from multiprocessing import Queue
@@ -12,6 +11,7 @@ import platform
 import time
 import sys
 import os
+import v4l2
 
 
 def main():
@@ -47,7 +47,7 @@ def main():
     # it's important not to error irrecoverably during a competition
     while True:
         try:
-            cap = Capture(source=cfg['capture_source'])
+            cap = v4l2.Capture(bytes(cfg['capture_source']))
             break
         except IOError:
             if source_is_webcam:
@@ -65,7 +65,7 @@ def main():
         logger.info('Setting V4L2 capture properties:')
         for prop in cfg['capture_props']:
             try:
-                cap.set(config_utils.to_v4l2_prop(prop), cfg['capture_props'][prop])
+                cap.set_control(config_utils.to_v4l2_prop(prop), cfg['capture_props'][prop])
                 logger.info(' * %s: %d', prop, cfg['capture_props'][prop])
             except TypeError:
                 logger.error('* Unable to set property %s to %d! skipping...', prop, cfg['capture_props'][prop])
@@ -88,7 +88,7 @@ def main():
 
     # main targeting loop
     while True:
-        frame = cv2.imdecode(cap.read(), cv2.CV_LOAD_IMAGE_COLOR)
+        frame = cap.get_frame().bgr
 
         # calculate the average of the value (brightness) channel to get a dummy value so we can test comms
         average_brightness = cv2.mean(frame[2])[0]
